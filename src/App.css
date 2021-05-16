@@ -1,38 +1,152 @@
-.App {
-  text-align: center;
+html,
+body {
+	margin: 0;
+	padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+	height: 100vh;
+	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 1.2em;
+  /* From https://webgradients.com/  */
+	background: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ul {
+	list-style-type: none;
+	-webkit-padding-start: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.btn {
+	cursor: pointer;
+	font-size: 12px;
+	padding: 10px 20px;
+	border-radius: 2em;
+	background: none;
+	border: 1px solid;
+	transition: 250ms ease-out;
 }
 
-.App-link {
-  color: #61dafb;
+.btn:focus {
+	color: #fff;
+	outline: none;
+}
+.btn-danger, .btn-success, .btn-primary{
+  margin: 0px 5%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-danger:hover, .btn-danger:focus  {
+	color: #fff;
+	background: #e74c3c;
+}
+.btn-success:hover, .btn-success:focus {
+	color: #fff;
+	background: #04AA6D;
+}
+.btn-primary:hover, .btn-primary:focus {
+	color: #fff;
+	background: #1094ec;
+}
+
+
+
+.app-container {
+	width: 400px;
+	min-height: 500px;
+	background-color: #fff;
+	box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+	position: relative;
+	border-radius: 1em;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.app-header {
+	padding: 10px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.today {
+
+}
+
+.task-count {
+	align-self: center;
+}
+
+.app-body {
+  /* http://cssreference.io/flexbox/#flex-grow    */
+  /* Since parent has space-between, allows app-body to grow    */
+  flex-grow: 1; 
+	max-height: 600px;
+	overflow-x: hidden;
+	/*overflow-y: scroll;*/
+}
+
+.todo-list:first-of-type {
+	border-top: 1px solid #f5f4f4;
+}
+
+.list-item-view {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.app-form {
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: center;
+}
+
+.input-text {
+	height: 40px;
+	font-size: 15px;
+	border: 1px solid #dce4ec;
+	width: 100%;
+	margin-right: 15px;
+	border-radius: 2em;
+	padding: 5px 10px;
+	transition: border 250ms ease-out;
+}
+
+.input-text:focus {
+	border: 1px solid;
+	outline: none;
+}
+
+/** 
+ * Helpers
+ */
+
+.completed {
+	text-decoration: line-through;
+  /* Cannot use transition with text-decoration. */
+}
+
+
+
+/** 
+ * Media Queries
+ */
+
+@media screen and (max-width: 500px) {
+	body {
+		background: none;
+		height: 100vh;
+	}
+
+	.app-container {
+		width: 100%;
+		height: 100vh;
+		box-shadow: none;
+	}
 }
